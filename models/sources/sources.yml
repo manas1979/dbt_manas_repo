@@ -1,0 +1,21 @@
+sources:
+  - name: raw
+    description: The primary source system for order management system(OMS) data analytics.  
+    database: EY_TRAINING
+    schema: raw
+    config:
+      freshness:
+        warn_after: {count: 1, period: day}
+        error_after: {count: 3, period: day}
+    loaded_at_field: Updated_at
+    
+    tables:
+      - name: customers
+        description: The customers table from order management system(OMS).      
+        identifier: customers
+      - name: orders
+        description: The orders table from order management system(OMS).      
+        identifier: orders
+      - name: orderitems
+        description: The orderitems table from order management system(OMS).      
+        identifier: orderitems
